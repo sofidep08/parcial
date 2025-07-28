@@ -1,5 +1,5 @@
 trabajadores = {}
-class Empleados ("nombre", "departamento", "antiguedad"):
+class Empleados ():
     def __init__(self, nombre, departamento, antiguedad):
         self.nombre = nombre
         self.departamento = departamento
@@ -14,12 +14,11 @@ class Desempeno ():
         return
 
 opcion = 0
-while opcion != 4:
+while opcion != 3:
     try :
         print("[1] Registrar empleado")
         print("[2] Registro de empleados")
-        print("[3] Buscar empleado por codigo")
-        print("[4] Salir")
+        print("[3] Salir")
         opcion = int(input("Elija una opcion: "))
         if opcion in [1,2,3] :
             match opcion:
@@ -37,12 +36,10 @@ while opcion != 4:
                         puntualidad = float(input("Ingrese la puntuacion de la puntualidad: "))
                         equipo = float(input("Ingrese la puntuacion del trabajo en equipo: "))
                         productividad = float(input("Ingrese la puntuacion de la productividad: "))
-
                         trabajadores[codigo]["puntuacion"][codigo_puntuacion] ={
                             "puntualidad" : puntualidad,
                             "equipo" : equipo,
                             "productividad" : productividad
-
                         }
                         print("\n contacto")
                         trabajadores[codigo]["contacto"]={}
@@ -61,17 +58,23 @@ while opcion != 4:
                         print(f"\nNombre: {datos1["nombre"]}")
                         print(f"Departamento: {datos1["departamento"]}")
                         print(f"Antiguedad: {datos1["antiguedad"]}")
-                        print("Puntuacion ")
-
-
-
-
-
+                        print("\nPuntuacion")
+                        for codigo_puntuacion, datos2 in datos1["puntuacion"].items():
+                            print(f"Puntuacion: {datos2["puntualidad"]}")
+                            print(f"Correo: {datos2["equipo"]}")
+                            print(f"Correo: {datos2["productividad"]}")
+                            promedio = (datos2["productividad"] + datos2["equipo"] + datos2["productividad"])/3
+                            print("Promedio de empleado: ", promedio)
+                        for codigo_contacto, datos3 in datos1["contacto"].items():
+                            print(f"Contacto: {datos3["telefono"]}")
+                            print(f"Correo: {datos3["correo"]}")
+                case 3 :
+                    print("SALIENDO DEL MENÚ...")
 
         else:
             print("Opcion no valida")
     except ValueError:
         print("Ingrese un numero entero")
-    if opcion!=4:
+    if opcion!=3:
         print("Presione Enter para volverlo a intentar o elejir otra opción")
         input()
