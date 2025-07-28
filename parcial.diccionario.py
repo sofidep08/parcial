@@ -65,9 +65,14 @@ while opcion != 3:
                             print(f"Correo: {datos2["productividad"]}")
                             promedio = (datos2["productividad"] + datos2["equipo"] + datos2["productividad"])/3
                             print("Promedio de empleado: ", promedio)
-                        for codigo_contacto, datos3 in datos1["contacto"].items():
-                            print(f"Contacto: {datos3["telefono"]}")
-                            print(f"Correo: {datos3["correo"]}")
+                            if promedio >= 7 :
+                                print("Desempeño satisfactorio")
+                            elif promedio < 7 :
+                                print("Debe mejorar")
+
+                            for codigo_contacto, datos3 in datos1["contacto"].items():
+                                print(f"Contacto: {datos3["telefono"]}")
+                                print(f"Correo: {datos3["correo"]}")
                 case 3 :
                     print("SALIENDO DEL MENÚ...")
 
